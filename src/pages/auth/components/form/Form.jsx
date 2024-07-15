@@ -1,6 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-const Form = ({ type }) => {
+const Form = ({ type, onSubmit }) => {
+  const [data, setData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData({
+      ...data,
+      [name]: value,
+    });
+    // console.log(data);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(data);
+  };
+
   return (
     <div className="bg-gray-200 h-dvh">
       <div className="container mx-auto py-8">
@@ -9,7 +28,7 @@ const Form = ({ type }) => {
         </h1>
         <form
           className="w-full max-w-sm mx-auto bg-white p-8 rounded-md shadow-md"
-          onSubmit={onsubmit}
+          onSubmit={handleSubmit}
         >
           {type === "Register" && (
             <div className="mb-4">
@@ -23,7 +42,8 @@ const Form = ({ type }) => {
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
                 type="text"
                 id="name"
-                name="name"
+                name="username"
+                onChange={handleChange}
                 placeholder="John Doe"
               />
             </div>
@@ -40,6 +60,7 @@ const Form = ({ type }) => {
               type="email"
               id="email"
               name="email"
+              onChange={handleChange}
               placeholder="john@example.com"
             />
           </div>
@@ -55,6 +76,7 @@ const Form = ({ type }) => {
               type="password"
               id="password"
               name="password"
+              onChange={handleChange}
               placeholder="********"
             />
           </div>

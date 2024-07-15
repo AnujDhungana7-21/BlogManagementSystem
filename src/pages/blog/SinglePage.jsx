@@ -1,59 +1,131 @@
 import React from "react";
 import Layout from "../../components/layout/Layout";
-
+import { LiaEdit } from "react-icons/lia";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { Link } from "react-router-dom";
 const SinglePage = () => {
   return (
     <Layout>
-      <div className="flex flex-wrap justify-between">
-        <div className="w-full md:w-8/12 px-4 mb-8">
-          <h2 className="text-4xl font-bold mt-4 mb-6 text-center">
-            My First Blog Post
-          </h2>
-          <img
-            src="/logo.png"
-            alt="Featured Image"
-            className="w-full h-64  rounded"
-          />
-
-          <p className="text-gray-700 mb-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
-          <p className="text-gray-700 mb-4">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
-          </p>
-          <p className="text-gray-700 mb-4">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae ab illo inventore veritatis et quasi architecto beatae vitae
-            dicta sunt explicabo.
-          </p>
+      <div class="flex flex-col">
+        <div class="bg-gray-100 py-8">
+          <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">
+              Blog Title Here
+            </h1>
+            <p class="text-gray-600">Published on April 4, 2023</p>
+            <div className="flex gap-4 items-center mt-3">
+              <Link to="/blog/edit">
+                <button className="text-[1.5rem] ">
+                  <LiaEdit />
+                </button>
+              </Link>
+              <button className="text-[1.5rem]">
+                <RiDeleteBin6Line />
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="w-full md:w-4/12 px-4 mb-8 mt-20">
-          <div className="bg-gray-100 px-4 py-6 rounded ">
-            <h3 className="text-lg font-bold mb-2">Categories</h3>
-            <ul className="list-disc list-inside">
-              <li>
-                <a href="#" className="text-gray-700 hover:text-gray-900">
-                  Technology
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-700 hover:text-gray-900">
-                  Travel
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-700 hover:text-gray-900">
-                  Food
-                </a>
-              </li>
-            </ul>
+        <div class="bg-white py-8">
+          <div class="container mx-auto px-4 flex flex-col md:flex-row">
+            <div class="w-full md:w-3/4 px-4">
+              <img
+                src="https://images.unsplash.com/photo-1506157786151-b8491531f063"
+                alt="Blog Featured Image"
+                class="mb-8"
+              />
+              <div class="prose max-w-none text-justify">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+                  facilisi. Sed sit amet feugiat eros, eget eleifend dolor.
+                  Proin maximus bibendum felis, id fermentum odio vestibulum id.
+                  Sed ac ligula eget dolor consequat tincidunt. Nullam fringilla
+                  ipsum et ex lacinia, at bibendum elit posuere. Aliquam eget
+                  leo nec nibh mollis consectetur.
+                </p>
+                <p>
+                  Suspendisse potenti. Mauris euismod, magna sit amet aliquam
+                  dapibus, ex sapien porta nisl, vel auctor orci velit in risus.
+                  Fusce gravida bibendum dui, id volutpat felis dignissim a.
+                  Duis sagittis, arcu ac convallis bibendum, neque dolor
+                  suscipit dolor, non malesuada magna orci a mauris. Proin
+                  sollicitudin diam eu enim tincidunt dapibus. Aliquam pharetra
+                  purus mauris, id lacinia mi malesuada ut. Integer dignissim,
+                  urna nec scelerisque feugiat, lacus sapien tincidunt sem, sed
+                  luctus enim libero vel nunc. Vivamus ornare, felis quis
+                  feugiat luctus, orci justo auctor urna, et elementum orci
+                  dolor ac ante. Ut varius sapien nec fringilla sodales.
+                  Suspendisse lacinia, metus eu suscipit lobortis, enim sapien
+                  commodo sapien, non facilisis urna elit eget elit.
+                </p>
+                <p>
+                  Nulla facilisi. Sed venenatis pretium ante, sed tempor turpis
+                  sagittis ac. Pellentesque habitant morbi tristique senectus et
+                  netus et malesuada fames ac turpis egestas. Integer vel diam
+                  arcu. Maecenas bibendum efficitur ex sit amet tristique. Nulla
+                  vel sapien euismod, bibendum velit id, facilisis magna. Sed
+                  vestibulum nisi vitae justo congue, eu bibendum augue
+                  interdum. Nam quis orci nec nulla posuere facilisis. Etiam
+                  feugiat ligula quis est auctor, et sagittis orci elementum.
+                  Vestibulum ante ipsum primis in faucibus orci luctus et
+                  ultrices posuere cubilia Curae; Sed gravida neque vel tellus
+                  volutpat, vel laoreet lacus commodo. Vivamus quis enim leo.
+                </p>
+              </div>
+            </div>
+            <div class="w-full md:w-1/4 px-4">
+              <div class="bg-gray-100 p-4">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">
+                  Recent Posts
+                </h2>
+                <ul class="list-none">
+                  <li class="mb-2">
+                    <a href="#" class="text-gray-700 hover:text-gray-900">
+                      Blog Post 1
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="#" class="text-gray-700 hover:text-gray-900">
+                      Blog Post 2
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="#" class="text-gray-700 hover:text-gray-900">
+                      Blog Post 3
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="#" class="text-gray-700 hover:text-gray-900">
+                      Blog Post 4
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="bg-gray-100 p-4 mt-4">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">Categories</h2>
+                <ul class="list-none">
+                  <li class="mb-2">
+                    <a href="#" class="text-gray-700 hover:text-gray-900">
+                      Category 1
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="#" class="text-gray-700 hover:text-gray-900">
+                      Category 2
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="#" class="text-gray-700 hover:text-gray-900">
+                      Category 3
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="#" class="text-gray-700 hover:text-gray-900">
+                      Category 4
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
