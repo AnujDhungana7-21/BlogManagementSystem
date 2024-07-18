@@ -6,6 +6,7 @@ import Login from "./pages/auth/Login";
 import AddBlog from "./pages/blog/AddBlog";
 import EditBlog from "./pages/blog/EditBlog";
 import SinglePage from "./pages/blog/SinglePage";
+import Allproducts from "./pages/product/Allproducts";
 const App = () => {
   return (
     <BrowserRouter>
@@ -15,7 +16,8 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/blog/add" element={<AddBlog />} />
         <Route path="/blog/edit" element={<EditBlog />} />
-        <Route path="/single/id" element={<SinglePage />} />
+        <Route path="/single/:_id" element={<SinglePage />} />
+        <Route path="/allproducts" element={<Allproducts />} />
       </Routes>
     </BrowserRouter>
   );

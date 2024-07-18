@@ -4,16 +4,14 @@ import Form from "./components/form/Form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Alert from "../../components/sweetAlert/Alert.js";
+import { BASE_URL } from "../../config.js";
 
 const Register = () => {
   const navigate = useNavigate();
 
   const handleRegister = async (data) => {
     try {
-      const response = await axios.post(
-        "https://react30.onrender.com/api/user/register",
-        data
-      );
+      const response = await axios.post(`${BASE_URL}/register`, data);
       if (response.status === 201) {
         Alert("Good Job👍", `${response?.data?.message}`, "success");
         navigate("/login");

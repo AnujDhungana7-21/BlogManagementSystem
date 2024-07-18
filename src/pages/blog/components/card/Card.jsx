@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Card = () => {
+const Card = ({ Blog }) => {
+  // console.log(Blog);
   return (
     <>
       <div className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-slate-100 py-6 sm:py-12">
@@ -14,88 +15,37 @@ const Card = () => {
               OUR NEWS FEED
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-20">
-              <Link to="/single/id">
-                <div className="bg-white shadow rounded-lg overflow-hidden">
-                  <img
-                    src="https://loremflickr.com/320/240?random=1"
-                    className="object-cover h-52 w-full"
-                    alt=""
-                  />
-                  <div className="p-6">
-                    <span className="block text-slate-400 font-semibold text-sm">
-                      16 Juillet 2016
-                    </span>
-                    <h3 className="mt-3 font-bold text-lg pb-4 border-b border-slate-300">
-                      <a href="#">Finding best places to visit in California</a>
-                    </h3>
-                    <div>
-                      <button className="border border-black my-6 rounded-xl w-40 font-bold text-lg">
-                        Read More
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-              <div className="bg-white shadow rounded-lg overflow-hidden">
-                <img
-                  src="https://loremflickr.com/320/240?random=1"
-                  className="object-cover h-52 w-full"
-                  alt=""
-                />
-                <div className="p-6">
-                  <span className="block text-slate-400 font-semibold text-sm">
-                    16 Juillet 2016
-                  </span>
-                  <h3 className="mt-3 font-bold text-lg pb-4 border-b border-slate-300">
-                    <a href="#">Finding best places to visit in California</a>
-                  </h3>
-                  <div>
-                    <button className="border border-black my-6 rounded-xl w-40 font-bold text-lg">
-                      Read More
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-white shadow rounded-lg overflow-hidden">
-                <img
-                  src="https://loremflickr.com/320/240?random=1"
-                  className="object-cover h-52 w-full"
-                  alt=""
-                />
-                <div className="p-6">
-                  <span className="block text-slate-400 font-semibold text-sm">
-                    16 Juillet 2016
-                  </span>
-                  <h3 className="mt-3 font-bold text-lg pb-4 border-b border-slate-300">
-                    <a href="#">Finding best places to visit in California</a>
-                  </h3>
-                  <div>
-                    <button className="border border-black my-6 rounded-xl w-40 font-bold text-lg">
-                      Read More
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-white shadow rounded-lg overflow-hidden">
-                <img
-                  src="https://loremflickr.com/320/240?random=1"
-                  className="object-cover h-52 w-full"
-                  alt=""
-                />
-                <div className="p-6">
-                  <span className="block text-slate-400 font-semibold text-sm">
-                    16 Juillet 2016
-                  </span>
-                  <h3 className="mt-3 font-bold text-lg pb-4 border-b border-slate-300">
-                    <a href="#">Finding best places to visit in California</a>
-                  </h3>
-                  <div>
-                    <button className="border border-black my-6 rounded-xl w-40 font-bold text-lg">
-                      Read More
-                    </button>
-                  </div>
-                </div>
-              </div>
+              {Blog.length > 0 &&
+                Blog.map((el) => {
+                  let imageUrl =
+                    el.imageUrl || "https://loremflickr.com/320/240?random=1";
+                  let createdAt = new Date(el.userId.createdAt);
+                  let date = createdAt.toDateString();
+                  return (
+                    <Link to={`single/${el._id}`} key={el._id}>
+                      <div className="bg-white shadow rounded-lg overflow-hidden">
+                        <img
+                          src={imageUrl}
+                          className="object-cover h-52 w-full"
+                          alt=""
+                        />
+                        <div className="p-6">
+                          <span className="block text-slate-400 font-semibold text-sm">
+                            {date}
+                          </span>
+                          <h3 className="mt-3 font-bold text-lg pb-4 border-b border-slate-300">
+                            <a>{el.title}</a>
+                          </h3>
+                          <div>
+                            <button className="border border-black my-6 rounded-xl w-40 font-bold text-lg">
+                              Read More
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
             </div>
           </div>
         </div>
